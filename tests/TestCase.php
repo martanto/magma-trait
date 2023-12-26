@@ -3,8 +3,8 @@
 namespace Martanto\MagmaTrait\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Martanto\MagmaTrait\MagmaTraitServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

@@ -2,9 +2,9 @@
 
 namespace Martanto\MagmaTrait;
 
+use Martanto\MagmaTrait\Commands\MagmaTraitCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Martanto\MagmaTrait\Commands\MagmaTraitCommand;
 
 class MagmaTraitServiceProvider extends PackageServiceProvider
 {
