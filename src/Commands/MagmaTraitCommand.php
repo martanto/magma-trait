@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Martanto\MagmaTrait\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class MagmaTraitCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'magma-trait';
 
     public $description = 'My command';
 
