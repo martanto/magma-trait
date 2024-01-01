@@ -29,8 +29,6 @@ class MakeTrait extends GeneratorCommand
 
     /**
      * Get stub location
-     *
-     * @return string
      */
     protected function getStub(): string
     {
@@ -39,20 +37,15 @@ class MakeTrait extends GeneratorCommand
 
     /**
      * Get full namespace
-     *
-     * @param $rootNamespace
-     * @return string
      */
     protected function getDefaultNamespace($rootNamespace): string
     {
-        return $rootNamespace . '\Traits';
+        return $rootNamespace.'\Traits';
     }
 
     /**
      * Replace stub with trait name
      *
-     * @param $stub
-     * @param $name
      * @return array|string|string[]
      */
     protected function replaceClass($stub, $name): array|string
