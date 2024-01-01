@@ -2,7 +2,8 @@
 
 namespace Martanto\MagmaTrait;
 
-use Martanto\MagmaTrait\Commands\MagmaTraitCommand;
+use Martanto\MagmaTrait\Commands\MakeService;
+use Martanto\MagmaTrait\Commands\MakeTrait;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -17,6 +18,10 @@ class MagmaTraitServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('magma-trait')
-            ->hasCommand(MagmaTraitCommand::class);
+            ->hasConfigFile('magma-trait')
+            ->hasCommands([
+                MakeTrait::class,
+                MakeService::class
+            ]);
     }
 }
