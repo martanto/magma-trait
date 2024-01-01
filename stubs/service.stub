@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Services;
+
+class {{service_name}}
+{
+    /**
+    * Create regular or static methods here
+    */
+}
