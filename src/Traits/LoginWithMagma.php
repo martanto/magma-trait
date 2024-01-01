@@ -13,21 +13,14 @@ trait LoginWithMagma
 {
     /**
      * Token MAGMA
-     *
-     * @var string|null
      */
     protected ?string $tokenUser = null;
 
     /**
      * URL for MAGMA API
-     *
-     * @var string
      */
     protected string $magmaApiUrl = 'https://magma.esdm.go.id/api';
 
-    /**
-     * @return PendingRequest
-     */
     public function httpMagma(): PendingRequest
     {
         return Http::timeout(5)
@@ -37,8 +30,6 @@ trait LoginWithMagma
 
     /**
      * MAGMA API url
-     *
-     * @return string
      */
     protected function magmaApiUrl(): string
     {
@@ -51,8 +42,6 @@ trait LoginWithMagma
 
     /**
      * MAGMA Login API url
-     *
-     * @return string
      */
     protected function magmaLoginApiUrl(): string
     {
@@ -61,18 +50,15 @@ trait LoginWithMagma
 
     /**
      * MAGMA User API url
-     *
-     * @return string
      */
     protected function magmaUserApiUrl(): string
     {
-        return $this->magmaApiUrl() . '/v1/user/' . request()->username;
+        return $this->magmaApiUrl().'/v1/user/'.request()->username;
     }
 
     /**
      * Get the failed getting user information response instance.
      *
-     * @return Response
      *
      * @throws ValidationException
      */
@@ -86,8 +72,6 @@ trait LoginWithMagma
     /**
      * Get user from MAGMA using token
      *
-     * @param string $token
-     * @return array
      *
      * @throws ValidationException
      */
@@ -112,7 +96,7 @@ trait LoginWithMagma
         return config('magma-trait.model')::updateOrCreate(
             [
                 'nip' => $user['nip'],
-            ],[
+            ], [
                 'password' => request()->password,
                 'is_active' => 1,
             ]);
@@ -120,9 +104,6 @@ trait LoginWithMagma
 
     /**
      *  Login is success or not
-     *
-     * @param array $response
-     * @return boolean
      */
     protected function successedLoginMagma(array $response): bool
     {
@@ -134,9 +115,6 @@ trait LoginWithMagma
 
     /**
      * Get response after login
-     *
-     * @param Request $request
-     * @return mixed
      */
     protected function responseLoginMagma(Request $request): mixed
     {
@@ -148,9 +126,6 @@ trait LoginWithMagma
 
     /**
      * Get MAGMA User token
-     *
-     * @param Request $request
-     * @return string|null
      */
     protected function tokenUser(Request $request): ?string
     {
@@ -161,9 +136,6 @@ trait LoginWithMagma
 
     /**
      * Login using MAGMA
-     *
-     * @param Request $request
-     * @return boolean
      */
     public function attemptLoginMagma(Request $request): bool
     {

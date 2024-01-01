@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Facade;
  */
 class MagmaTrait extends Facade
 {
-    /**
-     * @return string
-     */
     protected static function getFacadeAccessor(): string
     {
         return \Martanto\MagmaTrait\MagmaTrait::class;

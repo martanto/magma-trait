@@ -21,7 +21,7 @@ class MagmaTraitServiceProvider extends PackageServiceProvider
             ->hasConfigFile('magma-trait')
             ->hasCommands([
                 MakeTrait::class,
-                MakeService::class
+                MakeService::class,
             ]);
     }
 }
