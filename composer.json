@@ -37,8 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Martanto\\MagmaTrait\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Martanto\\MagmaTrait\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -46,8 +45,7 @@
         "clear": "@php vendor/bin/testbench package:purge-magma-trait --ansi",
         "prepare": "@php vendor/bin/testbench package:discover --ansi",
         "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
+            "@composer run prepare"
         ],
         "start": [
             "Composer\\Config::disableProcessTimeout",
