@@ -15,13 +15,6 @@ You can install the package via composer:
 composer require martanto/magma-trait
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="magma-trait-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
