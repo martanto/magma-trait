@@ -1,10 +1,11 @@
 {
     "name": "martanto/magma-trait",
-    "description": "Trait maker and helper for MAGMA Indonesia app",
+    "description": "Trait and service generator for MAGMA Indonesia app",
     "keywords": [
-        "Martanto",
         "laravel",
-        "magma-trait"
+        "magma-trait",
+        "MAGMA Indonesia",
+        "volcano"
     ],
     "homepage": "https://github.com/martanto/magma-trait",
     "license": "MIT",
