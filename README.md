@@ -1,19 +1,11 @@
-# Trait maker and helper for MAGMA Indonesia app
+# Trait and service generator for MAGMA Indonesia app
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/martanto/magma-trait.svg?style=flat-square)](https://packagist.org/packages/martanto/magma-trait)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/martanto/magma-trait/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/martanto/magma-trait/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/martanto/magma-trait/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/martanto/magma-trait/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/martanto/magma-trait.svg?style=flat-square)](https://packagist.org/packages/martanto/magma-trait)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/magma-trait.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/magma-trait)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+This package is used to generate trait and service for MAGMA Indonesia
 
 ## Installation
 
@@ -40,44 +32,50 @@ This is the contents of the published config file:
 
 ```php
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | User Providers
+    |--------------------------------------------------------------------------
+    |
+    | All authentication drivers have a user provider. This defines how the
+    | users are actually retrieved out of your database or other storage
+    | mechanisms used by this application to persist your user's data.
+    |
+    */
+    'model' => config('auth.providers.users.model'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | MAGMA API url
+    |--------------------------------------------------------------------------
+    |
+    | This one define where the MAGMA API url located
+    |
+    */
+    'api_url' => 'https://magma.esdm.go.id/api',
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="magma-trait-views"
 ```
 
 ## Usage
 
 ```php
-$magmaTrait = new Martanto\MagmaTrait();
-echo $magmaTrait->echoPhrase('Hello, Martanto!');
-```
-
-## Testing
-
-```bash
-composer test
+use AuthenticatesUsers;
+use ByteConverter;
+use ColorPalettesTrait;
+use GenerateSlug;
+use GenerateUUID;
+use JsonFromFileTrait;
+use LoginWithMagma;
+use ThrottlesLogins;
 ```
 
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
 - [Martanto](https://github.com/martanto)
-- [All Contributors](../../contributors)
 
 ## License
 
