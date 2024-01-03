@@ -21,5 +21,5 @@ return [
     | This one define where the MAGMA API url located
     |
     */
-    'api_url' => 'https://magma.esdm.go.id/api',
+    'api_url' => env('MAGMA_API_URL', 'https://magma.esdm.go.id/api'),
 ];
