@@ -32,7 +32,7 @@ class MakeTrait extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return base_path('stubs/trait.stub');
+        return __DIR__.'/../../stubs/trait.stub';
     }
 
     /**

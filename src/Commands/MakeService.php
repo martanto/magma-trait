@@ -32,7 +32,7 @@ class MakeService extends GeneratorCommand
      */
     protected function getStub(): string
     {
-        return base_path('stubs/service.stub');
+        return __DIR__.'/../../stubs/service.stub.stub';
     }
 
     /**
