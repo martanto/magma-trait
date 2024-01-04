@@ -18,7 +18,7 @@ trait JsonFromFileTrait
         string|int|null $keyTwo = null
     ): array {
         $json = "json/{$name}.json";
-        
+
         if (! Storage::disk('local')->exists($json)) {
             return $this->error("File $name tidak ditemukan!");
         }
