@@ -17,12 +17,14 @@ trait JsonFromFileTrait
         string|int|null $keyOne = null,
         string|int|null $keyTwo = null
     ): array {
-        if (! Storage::disk('json')->exists($name.'.json')) {
+        $json = "json/{$name}.json";
+        
+        if (! Storage::disk('local')->exists($json)) {
             return $this->error("File $name tidak ditemukan!");
         }
 
         $this->json = json_decode(
-            Storage::disk('json')->get($name.'.json'), true
+            Storage::disk('local')->get($json), true
         );
 
         switch (true) {
