@@ -10,9 +10,6 @@ trait JsonFromFileTrait
 {
     use InteractsWithIO;
 
-    /**
-     * @var array 
-     */
     protected array $json;
 
     /**
@@ -34,8 +31,8 @@ trait JsonFromFileTrait
         );
 
         return match (true) {
-            !is_null($keyTwo) => $this->json = $this->json[$keyOne][$keyTwo],
-            !is_null($keyOne) => $this->json = $this->json[$keyOne],
+            ! is_null($keyTwo) => $this->json = $this->json[$keyOne][$keyTwo],
+            ! is_null($keyOne) => $this->json = $this->json[$keyOne],
             default => $this->json,
         };
 
