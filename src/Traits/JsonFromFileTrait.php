@@ -2,11 +2,17 @@
 
 namespace Martanto\MagmaTrait\Traits;
 
+use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 trait JsonFromFileTrait
 {
+    use InteractsWithIO;
+
+    /**
+     * @var array 
+     */
     protected array $json;
 
     /**
@@ -17,7 +23,7 @@ trait JsonFromFileTrait
         string|int|null $keyOne = null,
         string|int|null $keyTwo = null
     ): array {
-        $json = "json/{$name}.json";
+        $json = "json/$name.json";
 
         if (! Storage::disk('local')->exists($json)) {
             return $this->error("File $name tidak ditemukan!");
@@ -27,14 +33,12 @@ trait JsonFromFileTrait
             Storage::disk('local')->get($json), true
         );
 
-        switch (true) {
-            case ! is_null($keyTwo):
-                return $this->json = $this->json[$keyOne][$keyTwo];
-            case ! is_null($keyOne):
-                return $this->json = $this->json[$keyOne];
-        }
+        return match (true) {
+            !is_null($keyTwo) => $this->json = $this->json[$keyOne][$keyTwo],
+            !is_null($keyOne) => $this->json = $this->json[$keyOne],
+            default => $this->json,
+        };
 
-        return $this->json;
     }
 
     /**
