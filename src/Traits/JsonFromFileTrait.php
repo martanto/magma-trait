@@ -2,28 +2,38 @@
 
 namespace Martanto\MagmaTrait\Traits;
 
-use Illuminate\Console\Concerns\InteractsWithIO;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 
 trait JsonFromFileTrait
 {
-    use InteractsWithIO;
-
+    /**
+     * @var array $json
+     */
     protected array $json;
 
     /**
      * Load JSON file as an array
+     *
+     * @param string $file
+     * @param string|int|null $keyOne
+     * @param string|int|null $keyTwo
+     * @return array
+     * @throws ValidationException
      */
     public function json(
-        string $name,
+        string $file,
         string|int|null $keyOne = null,
         string|int|null $keyTwo = null
     ): array {
-        $json = "json/$name.json";
+        $json = "json/$file.json";
 
         if (! Storage::disk('local')->exists($json)) {
-            return $this->error("File $name tidak ditemukan!");
+            throw ValidationException::withMessages(
+                messages: [
+                    'file_not_found' => "File $file not found!"]
+            );
         }
 
         $this->json = json_decode(
@@ -40,6 +50,11 @@ trait JsonFromFileTrait
 
     /**
      * Load JSON file as Collection
+     * @param string $name
+     * @param string|int|null $keyOne
+     * @param string|int|null $keyTwo
+     * @return Collection
+     * @throws ValidationException
      */
     public function collection(
         string $name,
