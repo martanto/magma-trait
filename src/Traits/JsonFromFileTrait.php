@@ -8,18 +8,11 @@ use Illuminate\Validation\ValidationException;
 
 trait JsonFromFileTrait
 {
-    /**
-     * @var array $json
-     */
     protected array $json;
 
     /**
      * Load JSON file as an array
      *
-     * @param string $file
-     * @param string|int|null $keyOne
-     * @param string|int|null $keyTwo
-     * @return array
      * @throws ValidationException
      */
     public function json(
@@ -50,10 +43,7 @@ trait JsonFromFileTrait
 
     /**
      * Load JSON file as Collection
-     * @param string $name
-     * @param string|int|null $keyOne
-     * @param string|int|null $keyTwo
-     * @return Collection
+     *
      * @throws ValidationException
      */
     public function collection(
